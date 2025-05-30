@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        // 25 saniye sonra SpawnEnemies fonksiyonunu çağır
+        // 25 saniye sonra SpawnEnemies fonksiyonunu çağır Şu anlık 4 saniyeye ayarlı.
         StartCoroutine(SpawnAfterDelay(4f));
     }
 
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemyPrefab == null || spawnPoints.Length == 0 || player == null)
         {
-            Debug.LogError("❌ Lütfen prefab, spawn point ve player alanlarını atayın!");
+            Debug.LogError("spawnpoint ve playerı kontrol et.");
             return;
         }
 
@@ -41,10 +41,10 @@ public class EnemySpawner : MonoBehaviour
             EnemyAI ai = enemy.GetComponent<EnemyAI>();
             if (ai != null)
             {
-                ai.SetTarget(player); // Player'ı hedef olarak ata
+                ai.SetTarget(player); // Playerı hedef olarak atıyoruz.
             }
         }
 
-        Debug.Log("✅ Düşmanlar spawn edildi.");
+        Debug.Log(" Düşmanlar spawn edildi.");
     }
 }
