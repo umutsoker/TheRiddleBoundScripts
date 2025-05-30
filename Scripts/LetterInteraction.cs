@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;          // TextMeshPro kullanıyorsan
-using UnityEngine.UI; // Sadece Text kullanıyorsan bu satırı kullan
+using TMPro;          
+using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
 
 public class LetterInteraction : MonoBehaviour
 {
-    public GameObject pressEText;       // “E basarak mektubu oku” UI Text objesi
-    public GameObject letterPanel;      // Mektup içeriği için panel (UI)
-    public TMP_Text letterText;         // Mektup içeriğinin gösterileceği TMP_Text
-    public string letterContent = "Sevgili dostum, seni çok özledim..."; // Mektup metni
+    public GameObject pressEText;       // â€œE basarak mektubu okuâ€ UI Text objesi
+    public GameObject letterPanel;      // Mektup iÃ§eriÃ°i iÃ§in panel (UI)
+    public TMP_Text letterText;         // Mektup iÃ§eriÃ°inin gÃ¶sterileceÃ°i TMP_Text
+    public string letterContent = "Sevgili dostum, seni Ã§ok Ã¶zledim..."; // Mektup metni
 
     private bool isNearLetter = false;
     private bool isReading = false;
@@ -64,7 +64,7 @@ public class LetterInteraction : MonoBehaviour
         pressEText.SetActive(false);
         letterPanel.SetActive(true);
         letterText.text = letterContent;
-        // Burada karakter hareketini durdurabilirsin (opsiyonel)
+        // Burada karakter hareketini amacli kullanabilirim
     }
 
     void CloseLetter()
@@ -72,6 +72,6 @@ public class LetterInteraction : MonoBehaviour
         isReading = false;
         letterPanel.SetActive(false);
         pressEText.SetActive(true);
-        // Karakter hareketini açabilirsin (opsiyonel)
+        // Karakter hareketini kontrol etme amacli
     }
 }
