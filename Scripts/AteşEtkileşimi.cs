@@ -39,7 +39,8 @@ public class FireInteraction : MonoBehaviour
             successText.SetActive(false); // Sonra yazıyı kapat
         }
 
-        // (İstersen burada düşman spawn çağırabilirsin)
+        // Düşman çağırmak için alternstif ?
+        
         // EnemySpawner.Instance.SpawnEnemies();
     }
 
