@@ -6,17 +6,17 @@ using System.Collections;
 
 public class ExitRoom : MonoBehaviour
 {
-    public GameObject exitPromptText;  // "Dýþarý çýkmak için E tuþuna bas" yazýsý
+    public GameObject exitPromptText;  // dÄ±ÅŸarÄ± Ã§Ä±kmak iÃ§in e tusuna basÄ±n yazÄ±sÄ±.
 
-    private bool nearExit = false;      // Kapýya yaklaþtý mý?
-    private bool canShowPrompt = false; // Yazý gösterilebilir mi?
-    private float enterRoomTime;        // Odaya giriþ zamaný
+    private bool nearExit = false;      // Kapiya yaklaÅŸtÄ± mÄ±?
+    private bool canShowPrompt = false; // Yazi gÃ¶sterilebilir mi?
+    private float enterRoomTime;        // Odaya giris zamani
 
     void Start()
     {
-        exitPromptText.SetActive(false);  // Baþlangýçta yazý kapalý
-        enterRoomTime = Time.time;         // Sahne baþlama zamaný
-        StartCoroutine(EnablePromptAfterDelay(5f));  // 5 saniye sonra yazý açýlabilir
+        exitPromptText.SetActive(false);  // baslangicta yazi kapalÄ± olsun
+        enterRoomTime = Time.time;         // Sahne baslama zamani
+        StartCoroutine(EnablePromptAfterDelay(5f));  // 5 saniye sonra yazi acilabilir
     }
 
     IEnumerator EnablePromptAfterDelay(float delay)
@@ -24,7 +24,7 @@ public class ExitRoom : MonoBehaviour
         yield return new WaitForSeconds(delay);
         canShowPrompt = true;
 
-        // Eðer kapýdaysa ve 5 sn geçtiyse yazýyý göster
+        // EÃ°er kapÃ½daysa ve 5 sn geÃ§tiyse yazÃ½yÃ½ gÃ¶ster
         if (nearExit)
             exitPromptText.SetActive(true);
     }
@@ -54,8 +54,8 @@ public class ExitRoom : MonoBehaviour
     {
         if (nearExit && canShowPrompt && Input.GetKeyDown(KeyCode.E))
         {
-            // Önceki sahneye geçiþ
-            // Örneðin build settings'deki önceki sahne indexini kullanabilirsin
+            // Ã–nceki sahneye gecis
+            
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int previousSceneIndex = Mathf.Max(currentSceneIndex - 1, 0);
             SceneManager.LoadScene(previousSceneIndex);
