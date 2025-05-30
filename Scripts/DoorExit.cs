@@ -5,30 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class DoorExit : MonoBehaviour
 {
-    [Tooltip("Dýþ sahnedeki karakterin doðacaðý noktanýn koordinatlarý")]
+    [Tooltip("DÃ½Ã¾ sahnedeki karakterin doÃ°acaÃ°Ã½ noktanÃ½n koordinatlarÃ½")]
     public Vector3 outsideSpawnPosition;
 
-    [Tooltip("Dýþ sahnedeki karakterin baþlangýç rotasyonu")]
+    [Tooltip("DÃ½Ã¾ sahnedeki karakterin baÃ¾langÃ½Ã§ rotasyonu")]
     public Vector3 outsideSpawnRotationEuler;
 
-    // Kapýdan karakter geçerse
+    // KapÃ½dan karakter geÃ§erse
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // SpawnManager singleton'ýndan spawn pozisyonunu ayarla
+            // SpawnManager singleton'Ã½ndan spawn pozisyonunu ayarla
             if (SpawnManager.Instance != null)
             {
-                // Quaternion.Euler ile Euler açýlarýný rotasyona çeviriyoruz
+                // Quaternion.Euler ile Euler aÃ§Ã½larÃ½nÃ½ rotasyona Ã§eviriyoruz
                 Quaternion spawnRot = Quaternion.Euler(outsideSpawnRotationEuler);
                 SpawnManager.Instance.SetSpawnPosition(outsideSpawnPosition, spawnRot);
             }
             else
             {
-                Debug.LogError("SpawnManager bulunamadý!");
+                Debug.LogError("SpawnManager bulunamadÃ½!");
             }
 
-            // Yeni sahneye geçiþ (dýþ mekan sahnenizin adýný yazýn)
+            // Yeni sahneye gecis
             SceneManager.LoadScene("DisMekanSahneAdi");
         }
     }
